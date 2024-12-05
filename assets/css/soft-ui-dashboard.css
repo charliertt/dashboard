@@ -217,6 +217,15 @@ hr {
   opacity: 0.25;
 }
 
+/* Cambiar el color de la barra de progreso */
+.progress-bar.bg-primary {
+  background-color: #525CEB !important; /* Cambia el color a azul */
+}
+
+.bg-azul{
+  background-color: #525CEB;
+}
+
 h6,
 .h6,
 h5,

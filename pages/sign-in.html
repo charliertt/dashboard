@@ -196,26 +196,20 @@
   </script>
   <script>
     $(document).ready(function() {
-      $('#registroForm').parsley().on('form:validate', function(formInstance) {
-        formInstance.$element.on('submit', function(event) {
-          // Prevenir el comportamiento predeterminado del formulario
-          event.preventDefault();
-          
-          if (formInstance.isValid()) {
-            // Muestra la alerta de éxito
-            Swal.fire({
-              icon: 'success',
-              title: '¡Inicio de Sesión !',
-              text: 'Bienvenido.',
-              confirmButtonText: 'Aceptar',
-              timer: 3000,  // 3 segundos
-              timerProgressBar: true,
-              willClose: () => {  // Ejecuta la redirección cuando el SweetAlert se cierra
-                window.location.href = "index.html";  // Redirige después de la alerta
-              }
-            });
+      $('#registroForm').parsley().on('form:submit', function() {
+        // Si la validación de Parsley es exitosa, mostramos el SweetAlert
+        Swal.fire({
+          icon: 'success',
+          title: '¡Registro exitoso!',
+          text: 'Te has registrado correctamente.',
+          confirmButtonText: 'Aceptar',
+          timer: 3000,  // 3 segundos
+          timerProgressBar: true,
+          willClose: () => {  // Ejecuta la redirección cuando el SweetAlert se cierra
+            window.location.href = "index.html";  // Redirige después de la alerta
           }
         });
+        return false; // Evitar el envío tradicional del formulario
       });
     });
   </script>
